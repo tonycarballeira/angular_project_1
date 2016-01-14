@@ -5,13 +5,13 @@
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
-  <body class="container" ng-controller="StoreController as store">
+  <body class="container" ng-controller="StoreController as store" ng-hide="store.product.soldOut">
     <div class="product row">
       <h3>
         {{store.product.name}}
         <em class="pull-right">${{store.product.price}}</em>
       </h3>
-      <button>Add to Cart</button>
+      <button ng-show="store.product.canPurchase">Add to Cart</button>
     </div>
   </body>
 </html>
