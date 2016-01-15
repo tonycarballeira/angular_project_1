@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="gemStore">
   <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="application.css" />
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/application.css" />
+    <script type="text/javascript" src="javascript/angular.min.js"></script>
+    <script type="text/javascript" src="javascript/app.js"></script>
+    <script type="text/javascript" src="javascript/directives/products.js"></script>
   </head>
 
   <body ng-controller="StoreController as store">
@@ -21,7 +22,12 @@
         <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
 
         <!-- Image Gallery  -->
-        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+
+        <!-- USING CUSTOM DIRECTIVE WITH CONTROLLER FUNCTIONALITY -->
+
+        <product-gallery></product-gallery>
+
+        <!-- <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
           <div class="img-wrap">
             <img ng-src="{{product.images[gallery.current]}}" />
           </div>
@@ -30,10 +36,16 @@
               <img ng-src="{{image}}" />
             </li>
           </ul>
-        </div>
+        </div> -->
+
+        <!-- ^^  ^^  CALLING A CONTROLLER AS AN HTML ATTRIBUTE WHICH USES CONTROLLER IN APP.JS -->
 
         <!-- Product Tabs  -->
+
+        <!-- THIS IS A CUSTOM DIRECTIVE  -->
         <product-tabs></product-tabs>
+        <!-- TAB CONTROLLER ALIAS SET AS TAB IN APP.JS -->
+
       </div>
     </div>
   </body>
