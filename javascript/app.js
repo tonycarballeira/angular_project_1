@@ -14,7 +14,16 @@
       });
   }]);
 
-  // THIS CONTROLLERS FUNCTIONALITY WAS PLACED IN A CUSTOM DIRECTIVE 
+  app.controller('ReviewController', function() {
+    this.review = {};
+    this.addReview = function(product) {
+      this.review.createdOn = Date.now();
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
+  // THE FUNCTIONALITY FOR THESE CONTROLLERS WAS PLACED IN CUSTOM DIRECTIVES
 
   // app.controller("TabController", function() {
   //   this.tab = 1;
@@ -37,15 +46,8 @@
   //   }; 
   // });
 
-  app.controller('ReviewController', function() {
-    this.review = {};
-    this.addReview = function(product) {
-      this.review.createdOn = Date.now();
-      product.reviews.push(this.review);
-      this.review = {};
-    };
-  });
-
+  
+  // THIS DATA WAS MOVES TO A JSON FILE store-products.json
   // var gems = [{
   //     name: 'Azurite',
   //     description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
